@@ -8,7 +8,7 @@ import github_icon from "../../public/github_logo.svg";
 import { GoDownload } from "react-icons/go";
 import animaImage from "../../public/profile_pic1.svg";
 import { techStackIcons } from "./data/data";
-import { myProjectsData } from './data/data'
+import { myProjectsData } from "./data/data";
 import profile_rectangle from "../../public/profile_rectangle.svg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -30,6 +30,7 @@ interface StackImages {
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
+  const [menuOpen, setMenuOpen] = useState(false);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -122,7 +123,16 @@ export default function Home() {
         </header>
         <main className="">
           <nav className="mx-auto text-[#fff] flex flex-col lg:flex-row items-center justify-around mt-9 mb-12 overflow-hidden ">
-            <section className="text-center sm:text-left w-4/5 sm:w-2/4 mt-5">
+            <motion.section className="text-center sm:text-left w-4/5 sm:w-2/4 mt-5"
+            className="sm:my-7 py-2 sm:py-0"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: [0, 0.71, 0.2, 1.01],
+            }}
+            >
               <h3 className="text-[19px] sm:text-2xl font-bold text-[#EAB308]">
                 Hello, I am Favour Idoko,
               </h3>
@@ -138,14 +148,23 @@ export default function Home() {
               >
                 Contact Me
               </Link>
-            </section>
-            <section className="sm:my-7 py-2 sm:py-0">
+            </motion.section>
+            <motion.section
+              className="sm:my-7 py-2 sm:py-0"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
               <Image
                 src={animaImage}
                 alt="Animaa image"
                 className="shadow-lg rounded-full bg-black z-10 animate-floating"
               />
-            </section>
+            </motion.section>
           </nav>
           <section
             className="text-[#fff] items-center justify-center text-center flex flex-col gap-4"
