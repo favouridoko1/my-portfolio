@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion, useScroll, useSpring } from "framer-motion";
-import Header from "@/Components/Header/Header";
+import Header from "@/Components/Header/page";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
