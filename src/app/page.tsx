@@ -124,7 +124,6 @@ export default function Home() {
         <main className="">
           <nav className="mx-auto text-[#fff] flex flex-col lg:flex-row items-center justify-around mt-9 mb-12 overflow-hidden ">
             <motion.section className="text-center sm:text-left w-4/5 sm:w-2/4 mt-5"
-            className="sm:my-7 py-2 sm:py-0"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
