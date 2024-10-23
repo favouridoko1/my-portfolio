@@ -12,6 +12,7 @@ import { myProjectsData } from "./data/data";
 import profile_rectangle from "../../public/profile_rectangle.svg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 interface CardProps {
   id: number;
   laptop_img: any;
@@ -31,6 +32,11 @@ interface StackImages {
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const navigate = (page: string) => {
+    router.push(page);
+  };
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -123,14 +129,15 @@ export default function Home() {
         </header>
         <main className="">
           <nav className="mx-auto text-[#fff] flex flex-col lg:flex-row items-center justify-around mt-9 mb-12 overflow-hidden ">
-            <motion.section className="text-center sm:text-left w-4/5 sm:w-2/4 mt-5"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.5,
-              ease: [0, 0.71, 0.2, 1.01],
-            }}
+            <motion.section
+              className="text-center sm:text-left w-4/5 sm:w-2/4 mt-5"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
             >
               <h3 className="text-[19px] sm:text-2xl font-bold text-[#EAB308]">
                 Hello, I am Favour Idoko,
@@ -141,12 +148,15 @@ export default function Home() {
               <p className="text-sm lg:max-w-96 my-2 text-[#afadad]">
                 I design and write maintanable clean, elegant and efficient code
               </p>
-              <Link
-                href="#contact_me"
-                className=" my-3 p-2 font-medium rounded-md transition  hover:bg-[#f8d95e] bg-[#FACC15] active:bg-[#e9c537] text-gray-600	"
+              <motion.button
+                onClick={() => navigate("#contact_me")}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className=" my-3 p-1 font-medium rounded hover:bg-[#f8d95e] bg-[#FACC15] active:bg-[#e9c537] text-gray-600	"
               >
                 Contact Me
-              </Link>
+              </motion.button>
             </motion.section>
             <motion.section
               className="sm:my-7 py-2 sm:py-0"
@@ -282,9 +292,14 @@ export default function Home() {
                 >
                   Enter your message please...
                 </textarea>
-                <button className="hover:bg-[#f8d95e] bg-[#FACC15] p-2 w-fit rounded active:bg-[#e9c537] text-[#fff]">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className=" my-3 w-fit p-1 font-medium rounded hover:bg-[#f8d95e] bg-[#FACC15] active:bg-[#e9c537] text-gray-600"
+                >
                   Get in touch
-                </button>
+                </motion.button>
               </form>
               <article className="text-[#fff] p-4 flex flex-col gap-3">
                 <h1 className="-tracking-2 text-2xl tracking-widest">
