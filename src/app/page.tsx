@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion, useScroll, useSpring } from "framer-motion";
+import Header from "@/Components/Header/Header";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -13,10 +14,10 @@ export default function Home() {
     <>
       <motion.div
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[8px] bg-[#EAB308] transform origin-left"
+        className="fixed bottom-0 left-0 right-0 h-[8px] bg-[#EAB308] transform origin-left"
       />
       <div>
-        
+        <Header/>
       </div>
     </>
   );
