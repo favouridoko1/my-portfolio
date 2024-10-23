@@ -1,8 +1,6 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import { CiLinkedin } from "react-icons/ci";
-import { GrLinkedinOption } from "react-icons/gr";
 import menu_icon from "../../../public/menu_icon.svg";
 import linkedIn_icon from "../../../public/linkedin_icon.svg";
 import github_icon from "../../../public/github_logo.svg";
