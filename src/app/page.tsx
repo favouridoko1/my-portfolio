@@ -5,18 +5,13 @@ import Header from "@/Components/Header/page";
 import menu_icon from "../../public/menu_icon.svg";
 import linkedIn_icon from "../../public/linkedin_icon.svg";
 import github_icon from "../../public/github_logo.svg";
-// let PDF_FILE_URL = 'http://localhost:7000/file_pdf.pdf'
 import { GoDownload } from "react-icons/go";
 import animaImage from "../../public/profile_pic1.svg";
 import { techStackIcons } from "./data/data";
-// import { myProjectsData } from "../../app/data/data";
 import { myProjectsData } from './data/data'
 import profile_rectangle from "../../public/profile_rectangle.svg";
-// import { motion, animate, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
-// import Contact_me from "../Contact_me/Contact_me";
 import Link from "next/link";
-// import Cards from "../Projects_Card/Cards";
 interface CardProps {
   id: number;
   laptop_img: any;
@@ -204,29 +199,6 @@ export default function Home() {
                   </li>
                 </ul>
               ))}
-
-              {/* <motion.div
-            className="absolute left-0 flex gap-6 "
-            ref={ref}
-            style={{ x: xTranslation }}
-            onHoverStart={() => {
-              setMustFinish(true);
-              setDuration(SLOW_DURATION);
-            }}
-            onHoverEnd={() => {
-              setMustFinish(true);
-              setDuration(FAST_DURATION);
-            }} */}
-              {/* > */}
-              {/* {[...myProjectsData, ...myProjectsData].map((item, index) => (
-              <Cards
-                laptop_img={item.laptop_url}
-                chain_icon={item.chain_icon}
-                description={item.description}
-                key={item.id}
-              />
-            ))} */}
-              {/* </motion.div> */}
             </main>
           </section>
           <section
