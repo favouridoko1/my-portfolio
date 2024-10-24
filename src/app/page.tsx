@@ -6,10 +6,10 @@ import linkedIn_icon from "../../public/linkedin_icon.svg";
 import github_icon from "../../public/github_logo.svg";
 import { GoDownload } from "react-icons/go";
 import animaImage from "../../public/profile_pic1.svg";
-import { techStackIcons } from "./data/data";
+import { about_me, techStackIcons } from "./data/data";
 import { myProjectsData } from "./data/data";
 import profile_rectangle from "../../public/profile_rectangle.svg";
-import { useEffect, useState } from "react";
+import { HTMLInputTypeAttribute, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast, ToastContainer, ToastPosition } from "react-toastify";
@@ -34,7 +34,7 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
   const [menuOpen, setMenuOpen] = useState<boolean | null>(false);
   const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
+  const [email, setEmail] = useState<HTMLInputTypeAttribute>();
   const [message, setMessage] = useState<string>("");
   const router = useRouter();
   const navigate = (page: string) => {
@@ -49,16 +49,22 @@ export default function Home() {
 
   const handleSubmit = (e: any): void => {
     e.preventDefault();
-    if(email==='' || name==='' || message==='') {
+    if (email === "" || name === "" || message === "") {
+      console.log(e.target.value);
       toast.error("Please Enter all Fields!", {
         position: "bottom-right",
         autoClose: 1000,
       });
-    } else
-    toast.success("Email sent successfully!", {
-      position: "bottom-right",
-      autoClose: 1500,
-    })
+    } else {
+      toast.success("Email sent successfully!", {
+        position: "bottom-right",
+        autoClose: 1500,
+      });
+      setName('')
+      setEmail('')
+      setMessage('')
+      
+    }
   };
   return (
     <>
@@ -140,7 +146,7 @@ export default function Home() {
               <Image
                 src={menu_icon}
                 alt=""
-                className=" block md:hidden pointer"
+                className=" block md:hidden cursor-pointer"
               />
             </li>
           </ul>
@@ -263,25 +269,14 @@ export default function Home() {
                 />
               </figure>
               <article className="lg:w-6/12 flex flex-col items-center py-2 md:py-0">
-                <p className="w-[100%] justify-self-center md:w-[90%] ">
-                  I'm a passionate, self-proclaimed designer who specializes in
-                  full stack development (React.js & Node.js). I am very
-                  enthusiastic about bringing the technical and visual aspects
-                  of digital products to life. User experience, pixel perfect
-                  design, and writing clear, readable, highly performant code
-                  matters to me. I began my journey as a web developer in 2023,
-                  and since then, I've continued to grow and evolve as a
-                  developer, taking on new challenges and learning the latest
-                  technologies along the way. with over 1 years after starting
-                  my web development journey, I'm building cutting-edge web
-                  applications using modern technologies such as Next.js,
-                  TypeScript, Nestjs, Tailwindcss, Supabase and much more. When
-                  I'm not in full-on developer mode, you can find me hovering
-                  around on twitter or on indie hacker, witnessing the journey
-                  of early startups or enjoying some free time. You can follow
-                  me on Twitter where I share tech-related bites and build in
-                  public, or you can follow me on GitHub
-                </p>
+                {about_me.map((item, index) => (
+                  <p
+                    className="w-[100%] justify-self-center md:w-[90%]"
+                    key={index}
+                  >
+                    {item.description}
+                  </p>
+                ))}
               </article>
             </div>
           </section>
@@ -290,35 +285,43 @@ export default function Home() {
               CONTACT <span className="text-[#EAB308]">ME</span>
             </h1>
             <section className="sm:flex justify-center ">
-              <form action="" className="gap-4 flex flex-col sm:w-[40%] p-4">
+              <form action="" name="Contact" method="post" className="gap-4 flex flex-col sm:w-[40%] p-4">
                 <input
                   value={name}
                   type="text"
                   placeholder="Your name"
-                  className="text-md p-2 rounded outline-none text-[#858585]"
+                  className="text-md p-2 rounded outline-none text-[#858585] hover:outline-[#f5d142] active:outline-[#e9c537]"
+                  onChange={(e: any) => setName(e.target.value)}
                 />
                 <input
                   value={email}
-                  type="text"
+                  // type="email"
+                  type="email"
                   placeholder="Email"
-                  className="text-md p-2 rounded outline-none text-[#858585]"
+                  className="text-md p-2 rounded outline-none text-[#858585] hover:outline-[#f5d142] active:outline-[#e9c537]"
+                  onChange={(e: any) => setEmail(e.target.value)}
                 />
-                <textarea
-                  value={message}
-                  rows={4}
-                  cols={50}
-                  name="comment"
-                  form="usrform"
-                  className="text-[#9e9e9e] p-1"
-                >
-                  Enter your message please...
-                </textarea>
+                <>
+                  <label htmlFor="message" className="text-[#fff] mb-[-8px]">
+                    Enter your message please...
+                  </label>
+                  <textarea
+                    value={message}
+                    rows={4}
+                    cols={50}
+                    name="message"
+                    id="message"
+                    form="usrform"
+                    className="text-[#9e9e9e] p-1 outline-none mt-[-8px] hover:outline-[#f5d142] active:outline-[#e9c537]"
+                    onChange={(e: any) => setMessage(e.target.value)}
+                  />
+                </>
                 <motion.button
                   onClick={handleSubmit}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  className=" my-3 w-fit p-1 font-medium rounded hover:bg-[#f8d95e] bg-[#FACC15] active:bg-[#e9c537] text-gray-600"
+                  className="w-fit p-1 font-medium rounded hover:bg-[#f8d95e] bg-[#FACC15] active:bg-[#e9c537] text-gray-600"
                 >
                   Get in touch
                 </motion.button>
