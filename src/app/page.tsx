@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { motion, useScroll, useSpring } from "framer-motion";
-import Header from "@/Components/Header/page";
 import menu_icon from "../../public/menu_icon.svg";
 import linkedIn_icon from "../../public/linkedin_icon.svg";
 import github_icon from "../../public/github_logo.svg";
@@ -13,6 +12,8 @@ import profile_rectangle from "../../public/profile_rectangle.svg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { toast, ToastContainer, ToastPosition } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 interface CardProps {
   id: number;
   laptop_img: any;
@@ -31,7 +32,10 @@ interface StackImages {
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<boolean | null>(false);
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
   const router = useRouter();
   const navigate = (page: string) => {
     router.push(page);
@@ -42,6 +46,20 @@ export default function Home() {
     damping: 30,
     restDelta: 0.001,
   });
+
+  const handleSubmit = (e: any): void => {
+    e.preventDefault();
+    if(email==='' || name==='' || message==='') {
+      toast.error("Please Enter all Fields!", {
+        position: "bottom-right",
+        autoClose: 1000,
+      });
+    } else
+    toast.success("Email sent successfully!", {
+      position: "bottom-right",
+      autoClose: 1500,
+    })
+  };
   return (
     <>
       <motion.div
@@ -274,16 +292,19 @@ export default function Home() {
             <section className="sm:flex justify-center ">
               <form action="" className="gap-4 flex flex-col sm:w-[40%] p-4">
                 <input
+                  value={name}
                   type="text"
                   placeholder="Your name"
                   className="text-md p-2 rounded outline-none text-[#858585]"
                 />
                 <input
+                  value={email}
                   type="text"
                   placeholder="Email"
                   className="text-md p-2 rounded outline-none text-[#858585]"
                 />
                 <textarea
+                  value={message}
                   rows={4}
                   cols={50}
                   name="comment"
@@ -293,6 +314,7 @@ export default function Home() {
                   Enter your message please...
                 </textarea>
                 <motion.button
+                  onClick={handleSubmit}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -300,6 +322,7 @@ export default function Home() {
                 >
                   Get in touch
                 </motion.button>
+                <ToastContainer />
               </form>
               <article className="text-[#fff] p-4 flex flex-col gap-3">
                 <h1 className="-tracking-2 text-2xl tracking-widest">
