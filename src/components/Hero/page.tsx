@@ -1,14 +1,22 @@
 "use client";
+import React from "react";
 import Image from "next/image";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import animaImage from "../../../public/profile_pic1.svg";
-import { myProjectsData, about_me, techStackIcons } from "@/app/data/data";
-import { useState } from "react";
+import { about_me, techStackIcons, myProjectsData } from "@/app/data/data";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+interface CardProps {
+  id: number;
+  laptop_img: any;
+  chain_icon: any;
+  github_icon: any;
+  description: string;
+  github_repository: string;
+  live_url: string;
+}
 
 interface StackImages {
   id: number;
@@ -17,35 +25,13 @@ interface StackImages {
 }
 
 const Hero = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const router = useRouter();
-  const navigate =(page:string)=> {
-    router.push(page)
-  }
-
-
-  const handleSubmit = (e:any) => {
-    e.preventDefault();
-    if (!email || !name || !message) {
-      toast.error("Please Enter all Fields!", {
-        position: "bottom-right",
-        autoClose: 1000,
-      });
-    } else {
-      toast.success("Email sent successfully!", {
-        position: "bottom-right",
-        autoClose: 1500,
-      });
-      setName("");
-      setEmail("");
-      setMessage("");
-    }
+  const navigate = (page: string) => {
+    router.push(page);
   };
   return (
-    <div>
-        <main className="">
+    <>
+      <main className="">
         <nav className="mx-auto text-[#fff] flex flex-col lg:flex-row items-center justify-around mt-9 mb-12 overflow-hidden ">
           <motion.section
             className="text-center sm:text-left w-4/5 sm:w-2/4 mt-5"
@@ -67,7 +53,7 @@ const Hero = () => {
               I design and write maintanable clean, elegant and efficient code
             </p>
             <motion.button
-              onClick={() => navigate("#contact_me")}
+              onClick={() => navigate("#contact")}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -112,8 +98,11 @@ const Hero = () => {
             Things I’ve built so far
           </p>
           <main className="py-8 px-4 grid items-center justify-center sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {myProjectsData?.map((items) => (
-              <ul className="bg-[#080808] p-4 rounded transition-all duration-500 ease-in-out hover:scale-105 ">
+            {myProjectsData?.map((items: CardProps) => (
+              <ul
+                className="bg-[#080808] p-4 rounded transition-all duration-500 ease-in-out hover:scale-105"
+                key={items.id}
+              >
                 <li className="grid gap-2">
                   <Image src={items.laptop_img} alt={items.laptop_img} />
                   <p>{items.description}</p>
@@ -140,13 +129,16 @@ const Hero = () => {
         </section>
         <section
           className="mb-16 text-[#fff] flex justify-center items-center flex-col"
-          id="about_me"
+          id="about"
         >
           <h1 className="font-bold text-3xl my-4">
             ABOUT <span className="text-[#EAB308]">ME</span>
           </h1>
           {about_me.map((items, index) => (
-            <div className="w-full mx-auto p-8 bg-[#080808] justify-center items-center lg:flex">
+            <div
+              className="w-full mx-auto p-8 bg-[#080808] justify-center items-center lg:flex"
+              key={index}
+            >
               <figure className="lg:w-6/12 flex flex-col items-center">
                 <Image
                   src={items.img_url}
@@ -165,80 +157,9 @@ const Hero = () => {
             </div>
           ))}
         </section>
-        <section className="w-full " id="contact_me">
-          <h1 className="font-bold text-3xl my-2 text-center text-[#fff]">
-            CONTACT <span className="text-[#EAB308]">ME</span>
-          </h1>
-          <section className="sm:flex justify-center ">
-            <form
-              action=""
-              name="Contact"
-              method="post"
-              className="gap-4 flex flex-col sm:w-[40%] p-4"
-            >
-              <input
-                value={name}
-                type="text"
-                placeholder="Your name"
-                className="text-md p-2 rounded outline-none text-[#858585] hover:outline-[#f5d142] active:outline-[#e9c537]"
-                onChange={(e: any) => setName(e.target.value)}
-              />
-              <input
-                value={email}
-                // type="email"
-                type="email"
-                placeholder="Email"
-                className="text-md p-2 rounded outline-none text-[#858585] hover:outline-[#f5d142] active:outline-[#e9c537]"
-                onChange={(e: any) => setEmail(e.target.value)}
-              />
-              <>
-                <label htmlFor="message" className="text-[#fff] mb-[-8px]">
-                  Enter your message please...
-                </label>
-                <textarea
-                  value={message}
-                  rows={4}
-                  cols={50}
-                  name="message"
-                  id="message"
-                  form="usrform"
-                  className="text-[#9e9e9e] p-1 outline-none mt-[-8px] hover:outline-[#f5d142] active:outline-[#e9c537]"
-                  onChange={(e: any) => setMessage(e.target.value)}
-                />
-              </>
-              <motion.button
-                onClick={handleSubmit}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="w-fit p-1 font-medium rounded hover:bg-[#f8d95e] bg-[#FACC15] active:bg-[#e9c537] text-gray-600"
-              >
-                Get in touch
-              </motion.button>
-              <ToastContainer />
-            </form>
-            <article className="text-[#fff] p-4 flex flex-col gap-3">
-              <h1 className="-tracking-2 text-2xl tracking-widest">
-                Let's <span>talk</span> for Something special
-              </h1>
-              <p className="text-sm">
-                I seek to push the limits of creativity to create high-engaging,
-                user-friendly, and <br />
-                memorable interactive experiences
-              </p>
-              <ul className="flex flex-col gap-1">
-                <li className="text-[#FACC15]">ojodomofavour2004@gmail.com</li>
-                {/* <br /> */}
-                <li>
-                  <span className="text-[#FACC15]">( +234 )</span> 9059852978
-                </li>
-              </ul>
-            </article>
-          </section>
-        </section>
       </main>
-    </div>
-  )
-}
+    </>
+  );
+};
 
-export default Hero
+export default Hero;

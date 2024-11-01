@@ -7,7 +7,6 @@ import linkedIn_icon from "../../../public/linkedin_icon.svg";
 import github_icon from "../../../public/github_logo.svg";
 import { GoDownload } from "react-icons/go";
 import Link from "next/link";
-import "react-toastify/dist/ReactToastify.css";
 // import { FadeLoader } from "react-spinners/";
 
 const Header = () => {
