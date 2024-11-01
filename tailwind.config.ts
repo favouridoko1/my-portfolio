@@ -12,8 +12,20 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        floating: 'floating 3s ease-in-out infinite',
+      },
+      keyframes: {
+        floating: {
+          '0%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(0, 10px)' },
+          '100%': { transform: 'translate(0, -0)' },
+        },
+      },
     },
   },
   plugins: [],
 };
 export default config;
+
+
