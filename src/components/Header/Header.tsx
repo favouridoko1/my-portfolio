@@ -20,7 +20,7 @@ const Header = () => {
               FAVOUR<span className="text-[#EAB308]">IDOKO</span>
             </Link>
           </li>
-          <li className="hidden md:flex gap-4">
+          <li className="hidden md:flex gap-4"> 
             {["Home", "Skills", "About", "Projects", "Contact"].map((item) => (
               <Link
                 key={item}
@@ -51,7 +51,7 @@ const Header = () => {
           </li>
           <li>
             <Link
-              href="./file_pdf.pdf"
+              href="./favour-idoko-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="my-1 py-1 px-2 font-medium rounded-md transition hover:bg-[#f8d95e] bg-[#FACC15] items-center gap-1 active:bg-[#e9c537] text-gray-600 hidden md:flex"
@@ -104,7 +104,7 @@ const Header = () => {
             </Link>
             <li>
               <Link
-                href="./file_pdf.pdf"
+                href="./favour-idoko-resume.pdf"
                 target="_blank"
                 onClick={() => setMenuOpen(!menuOpen)}
                 rel="noopener noreferrer"
