@@ -51,7 +51,7 @@ const Header = () => {
           </li>
           <li>
             <Link
-              href="./favour-idoko-resume.pdf"
+              href="./FavourIdoko.pdff"
               target="_blank"
               rel="noopener noreferrer"
               className="my-1 py-1 px-2 font-medium rounded-md transition hover:bg-[#f8d95e] bg-[#FACC15] items-center gap-1 active:bg-[#e9c537] text-gray-600 hidden md:flex"
