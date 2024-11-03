@@ -104,7 +104,7 @@ const Header = () => {
             </Link>
             <li>
               <Link
-                href="./favour-idoko-resume.pdf"
+                href="./FavourIdoko.pdf"
                 target="_blank"
                 onClick={() => setMenuOpen(!menuOpen)}
                 rel="noopener noreferrer"
