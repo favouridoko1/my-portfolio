@@ -66,7 +66,7 @@ const Hero = () => {
           <section className="sm:my-7 py-2 sm:py-0">
             <Image
               src={animaImage}
-              alt="Animaa image"
+              alt="Anima image"
               className="shadow-lg rounded-full bg-black z-10 animate-floating w-[97%] sm:w-full self-center"
             />
           </section>
@@ -85,9 +85,9 @@ const Hero = () => {
             {techStackIcons.map((items: StackImages) => (
               <li
                 key={items.id}
-                className="flex justify-center flex-col items-center my-3"
+                className="flex justify-center flex-col items-center my-3 "
               >
-                <Image src={items.url} alt="" />
+                <Image src={items.url} alt="" className="hover:motion-rotate-in-[0.5turn]" />
                 <p className="font-xs">{items.description}</p>
               </li>
             ))}
