@@ -13,7 +13,7 @@ export default function Home() {
     restDelta: 0.001,
   });
   return (
-    <div>
+    <div className="">
       <motion.div
         style={{ scaleX }}
         className="fixed bottom-0 left-0 right-0 h-[8px] bg-[#EAB308] transform origin-left"

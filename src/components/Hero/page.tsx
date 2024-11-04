@@ -43,13 +43,14 @@ const Hero = () => {
               ease: [0, 0.71, 0.2, 1.01],
             }}
           >
-            <h3 className="text-[19px] sm:text-2xl font-bold text-[#EAB308]">
+            <h3 className="text-[19px] sm:text-2xl font-bold text-[#EAB308] motion-preset-typewriter-[24]
+">
               Hello, I am Favour Idoko,
             </h3>
             <p className="text-3xl sm:text-4xl font-bold text-nowrap">
               Frontend Developer
             </p>
-            <p className="text-sm lg:max-w-96 my-2 text-[#afadad]">
+            <p className="text-sm lg:max-w-96 my-2 text-[#afadad] font-mono">
               I design and write maintanable clean, elegant and efficient code
             </p>
             <motion.button
