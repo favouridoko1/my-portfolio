@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import animaImage from "../../../public/profile_pic1.svg";
+import animaImage from "../../../public/profile_pic1.jpg";
 import { about_me, techStackIcons, myProjectsData } from "@/app/data/data";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -43,8 +43,10 @@ const Hero = () => {
               ease: [0, 0.71, 0.2, 1.01],
             }}
           >
-            <h3 className="text-[19px] sm:text-2xl font-bold text-[#EAB308] motion-preset-typewriter-[24]
-">
+            <h3
+              className="text-[19px] sm:text-2xl font-bold text-[#EAB308] motion-preset-typewriter-[24]
+"
+            >
               Hello, I am Favour Idoko,
             </h3>
             <p className="text-3xl sm:text-4xl font-bold text-nowrap">
@@ -67,7 +69,13 @@ const Hero = () => {
             <Image
               src={animaImage}
               alt="Anima image"
-              className="shadow-lg rounded-full bg-black z-10 animate-floating w-[97%] sm:w-full self-center"
+              className="shadow-lg bg-black z-10 animate-floating self-center"
+              style={{
+                width: "450px",
+                height: "450px",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
             />
           </section>
         </nav>
@@ -87,7 +95,11 @@ const Hero = () => {
                 key={items.id}
                 className="flex justify-center flex-col items-center my-3 "
               >
-                <Image src={items.url} alt="" className="hover:motion-rotate-in-[0.5turn]" />
+                <Image
+                  src={items.url}
+                  alt=""
+                  className="hover:motion-rotate-in-[0.5turn]"
+                />
                 <p className="font-xs">{items.description}</p>
               </li>
             ))}
@@ -137,14 +149,14 @@ const Hero = () => {
           </h1>
           {about_me.map((items, index) => (
             <div
-              className="w-full mx-auto p-8 bg-[#080808] justify-center items-center lg:flex"
+              className="w-full mx-auto p-8 bg-[#080808] justify-center items-center flex gap-8 flex-col lg:flex-row"
               key={index}
             >
               <figure className="lg:w-6/12 flex flex-col items-center">
                 <Image
                   src={items.img_url}
-                  alt={items.img_url}
-                  className="lg:w-[98%] xl:w-[57%]"
+                  alt="Item Image"
+                  className="w-[57%] rounded-3xl"
                 />
               </figure>
               <article className="lg:w-6/12 flex flex-col items-center py-2 md:py-0">

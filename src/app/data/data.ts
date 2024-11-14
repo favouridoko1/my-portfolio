@@ -11,8 +11,8 @@ import sass_icon from "../../../public/logos_sass.svg";
 import laptop_img from "../../../public/laptop_image.svg";
 import chain_img from "../../../public/chain_icon.svg";
 import github_icon from "../../../public/github_icon_small.svg";
-import profile_rectangle from "../../../public/profile_rectangle.svg";
-import profile_circle from "../../../public/profile_pic1.svg";
+import profile_rectangle from "../../../public/my_profile.jpg";
+import profile_circle from "../../../public/profile_pic1.jpg";
 
 
 const techStackIcons = [
