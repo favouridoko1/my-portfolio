@@ -73,14 +73,14 @@ const Header = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <header className="md:hidden">
-          <ul className="border-b fixed top-0 left-0 h-[100vh] p-4 w-[200px] z-[999] gap-4 border-[#292929] flex flex-col bg-[#ffffff7a] justify-start backdrop-blur-30">
+          <ul className="border-b fixed top-0 left-0 h-[100vh] p-4 w-[200px] z-[999] gap-4 border-[#000000] flex flex-col bg-[#1f1f1f] justify-start">
             {["Home", "Skills", "About", "Projects", "Contact"].map(
               (item: string) => (
                 <Link
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => setMenuOpen(!menuOpen)}
-                  className="text-md font-semibold text-[#383f4b] transition duration-100 hover:bg-[#f0f0f0] active:text-[#acdbac]"
+                  className="text-md font-semibold text-[#FFFFFF] transition duration-100 hover:bg-[#f0f0f0] hover:text-[#383f4b] active:text-[#acdbac]"
                 >
                   {item}
                 </Link>
@@ -90,7 +90,7 @@ const Header = () => {
               href="https://www.linkedin.com/in/favour-idoko-12760b2b5/"
               target="_blank"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-md font-semibold text-[#383f4b] transition duration-100 hover:bg-[#f0f0f0] active:text-[#acdbac]"
+              className="text-md font-semibold text-[#FFFFFF] transition duration-100 hover:bg-[#f0f0f0] hover:text-[#383f4b] active:text-[#acdbac]"
             >
               LinkedIn
             </Link>
@@ -98,7 +98,7 @@ const Header = () => {
               href="https://github.com/favouridoko1"
               target="_blank"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-md font-semibold text-[#383f4b] transition duration-100 hover:bg-[#f0f0f0] active:text-[#acdbac]"
+              className="text-md font-semibold text-[#FFFFFF] transition duration-100 hover:bg-[#f0f0f0] hover:text-[#383f4b] active:text-[#acdbac]"
             >
               Github
             </Link>
@@ -108,7 +108,7 @@ const Header = () => {
                 target="_blank"
                 onClick={() => setMenuOpen(!menuOpen)}
                 rel="noopener noreferrer"
-                className="my-1 py-1 px-2 font-medium rounded-md transition hover:bg-[#f8d95La] bg-[#FACC15] items-center gap-1 active:bg-[#e9c537] text-gray-600 hidden md:flex"
+                className="text-md text-[#FFFFFF] duration-100 hover:bg-[#f0f0f0] hover:text-[#383f4b] active:text-[#acdbac] my-1 font-medium transition hover:bg-[#f8d95La] items-center gap-1 flex"
               >
                 Resume <GoDownload />
               </Link>
