@@ -44,10 +44,10 @@ const Hero = () => {
             }}
           >
             <h3
-              className="text-[19px] sm:text-2xl font-bold text-[#EAB308] motion-preset-typewriter-[24]
+              className="text-3xl font-bold text-nowrap text-[#EAB308] motion-preset-typewriter-[24]
 "
             >
-              Hello, I am Favour Idoko,
+              Hello, I am Favour Idoko
             </h3>
             <p className="text-3xl sm:text-4xl font-bold text-nowrap">
               Frontend Developer
@@ -156,7 +156,7 @@ const Hero = () => {
                 <Image
                   src={items.img_url}
                   alt="Item Image"
-                  className="w-[57%] rounded-3xl"
+                  className="w-full sm:w-[57%] rounded-2xl"
                 />
               </figure>
               <article className="lg:w-6/12 flex flex-col items-center py-2 md:py-0">
