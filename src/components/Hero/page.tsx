@@ -2,8 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import animaImage from "../../../public/profile_pic1.jpg";
-import { about_me, techStackIcons, myProjectsData } from "@/app/data/data";
+// import animaImage from "../../../public/profile_pic1.jpg";
+import { techStackIcons, myProjectsData } from "@/app/data/data";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import "react-toastify/dist/ReactToastify.css";
