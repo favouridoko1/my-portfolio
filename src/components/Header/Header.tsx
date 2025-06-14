@@ -14,7 +14,8 @@ const Header = () => {
   return (
     <>
       <header className="sticky top-0 left-0 right-0 z-20">
-        <ul className="border-b border-[#292929] py-4 flex justify-around items-center bg-[#2b2b2b]">
+        {/* <ul className="border-b border-[#292929] py-4 flex justify-around items-center bg-[#2b2b2b]"> */}
+        <ul className="border-b border-[#292929] py-4 flex justify-around items-center bg-black/70 backdrop-blur-md">
           <li className="text-[#f6f6f6] font-bold text-xl">
             <Link href="/">
               FAVOUR<span className="text-[#EAB308]">IDOKO</span>
