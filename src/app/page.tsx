@@ -3,7 +3,7 @@ import React from "react";
 import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/page";
 import { motion, useScroll, useSpring } from "framer-motion";
-import Contact from "@/components/Contact/Contact";
+import Contact from "@/app/contact/page";
 import Footer from "@/components/Footer/page";
 
 export default function Home() {
@@ -26,8 +26,7 @@ export default function Home() {
         />
         <Header />
         <Hero />
-        <Contact />
-
+        {/* <Contact /> */}
       </div>
       <Footer />
 

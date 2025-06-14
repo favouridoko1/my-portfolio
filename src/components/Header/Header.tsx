@@ -7,7 +7,14 @@ import linkedIn_icon from "../../../public/linkedin_icon.svg";
 import github_icon from "../../../public/github_logo.svg";
 import { GoDownload } from "react-icons/go";
 import Link from "next/link";
-// import { FadeLoader } from "react-spinners/";
+const navLinks = [
+  { name: "Home", route: "/" },
+  { name: "Skills", route: "/skills" },
+  { name: "About", route: "/about" },
+  { name: "Projects", route: "/projects" },
+  { name: "Contact", route: "/contact" },
+];
+
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState<boolean|null>(false);
@@ -22,13 +29,13 @@ const Header = () => {
             </Link>
           </li>
           <li className="hidden md:flex gap-4"> 
-            {["Home", "Skills", "About", "Projects", "Contact"].map((item) => (
+            {navLinks.map((item, index) => (
               <Link
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={index}
+                href={item.route}
                 className="text-md font-semibold text-[#9CA3AF] transition duration-100 hover:text-[#acdbac] active:text-[#acdbac]"
               >
-                {item}
+                {item.name}
               </Link>
             ))}
           </li>

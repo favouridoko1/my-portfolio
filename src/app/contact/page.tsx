@@ -55,7 +55,7 @@ const Contact = () => {
           setForm({ name: "", email: "", message: "" });
           setIsLoading(false);
         },
-        (error) => {
+        () => {
           toast.error("Something went wrong. Please try again.", {
             position: "bottom-right",
             autoClose: 1500,
@@ -67,8 +67,7 @@ const Contact = () => {
 
   return (
     <section
-      id="contact"
-      className="py-16 px-6 md:px-16  text-white"
+      className="py-16 px-6 md:px-16 text-white"
     >
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
         Contact <span className="text-yellow-400">Me</span>

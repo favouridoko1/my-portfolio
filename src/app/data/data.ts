@@ -77,6 +77,7 @@ const myProjectsData = [
   // live_url:string;
   {
     id: 1,
+    title: "Flixx Movie App",
     laptop_img: laptop_img,
     chain_icon: chain_img,
     github_icon: github_icon,
@@ -86,6 +87,7 @@ const myProjectsData = [
   },
   {
     id: 2,
+    title: "Shopping List App",
     laptop_img: laptop_img,
     chain_icon: chain_img,
     github_icon: github_icon,
@@ -97,6 +99,7 @@ const myProjectsData = [
   
   {
     id: 3,
+    title: "Movie Website",
     laptop_img: laptop_img,
     chain_icon: chain_img,
     github_icon: github_icon,
