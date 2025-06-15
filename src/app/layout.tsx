@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${poppins.className}`}>
-        <div className="bg-stars relative min-h-screen overflow-hidden">
+        <div className="bg-stars relative min-h-screen overflow-hidden p-4">
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/70 z-0" />
 

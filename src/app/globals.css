@@ -56,3 +56,85 @@ body {
     background-position: 1000px 1000px, 1020px 1020px;
   }
 }
+
+/* globals.css */
+
+.btn-primary {
+  @apply px-6 py-2 rounded-md font-semibold transition-all duration-300 
+          bg-yellow-400 text-gray-900 hover:bg-yellow-300 active:bg-yellow-500 shadow-md;
+}
+
+.btn-secondary {
+  @apply px-6 py-2 rounded-md font-semibold transition-all duration-300 
+          bg-transparent border border-yellow-400 text-yellow-400 
+          hover:bg-yellow-400 hover:text-gray-900 active:bg-yellow-500 shadow-md;
+}
+
+.glow-react {
+  color: #facc15;
+  animation: glow-react 2s ease-in-out infinite;
+}
+
+@keyframes glow-react {
+  0%, 100% {
+    text-shadow: 0 0 4px #facc15, 0 0 8px #facc15;
+  }
+  50% {
+    text-shadow: 0 0 2px #facc15;
+  }
+}
+
+.glow-next {
+  color: #eaeaea;
+  animation: glow-next 2s ease-in-out infinite;
+}
+
+@keyframes glow-next {
+  0%, 100% {
+    text-shadow: 0 0 4px #eaeaea, 0 0 8px #eaeaea;
+  }
+  50% {
+    text-shadow: 0 0 2px #eaeaea;
+  }
+}
+
+.glow-tailwind {
+  color: #94a3b8;
+  animation: glow-tailwind 2s ease-in-out infinite;
+}
+
+@keyframes glow-tailwind {
+  0%, 100% {
+    text-shadow: 0 0 4px #94a3b8, 0 0 8px #94a3b8;
+  }
+  50% {
+    text-shadow: 0 0 2px #94a3b8;
+  }
+}
+
+.glow-angular {
+  color: #f87171;
+  animation: glow-angular 2s ease-in-out infinite;
+}
+
+@keyframes glow-angular {
+  0%, 100% {
+    text-shadow: 0 0 4px #f87171, 0 0 8px #f87171;
+  }
+  50% {
+    text-shadow: 0 0 2px #f87171;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px #facc15aa;
+  }
+  50% {
+    box-shadow: 0 0 16px #facc15cc;
+  }
+}
+
+.tech-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}

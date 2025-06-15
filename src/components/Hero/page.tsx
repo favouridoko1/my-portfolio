@@ -17,41 +17,55 @@ const Hero = () => {
     // Inside your return()
     <main className="text-white">
       {/* HERO SECTION */}
-      <nav className="mx-auto flex flex-col lg:flex-row items-center justify-around mt-12 mb-16 px-4">
+      <nav className="mx-auto flex flex-col lg:flex-row items-center justify-around gap-8 py-6">
         <RevealOnScroll variant="fadeUp">
-          <section className="text-center sm:text-left w-full sm:w-2/3 lg:w-1/2">
-            <h3 className="text-3xl sm:text-4xl font-bold text-[#EAB308] whitespace-nowrap">
-              Hello, I am Favour Idoko
+          <section className="text-center lg:text-left w-full">
+            <h3 className="text-2xl sm:text-4xl font-bold text-[#EAB308] whitespace-nowrap">
+              Hey, I’m Favour Idoko
             </h3>
-            <p className="text-3xl sm:text-4xl font-bold mt-2">
-              Frontend Developer
+            <p className="text-2xl sm:text-4xl font-bold mt-2 ">
+              I build beautiful, performant web apps.
             </p>
-            <p className="text-base sm:text-lg mt-3 text-[#afadad] font-mono leading-relaxed max-w-md">
-              I design and write maintainable, clean, elegant, and efficient
-              code.
+            <p className="text-base sm:text-lg mt-4 text-[#afadad] font-mono leading-relaxed " >
+              I’m a frontend developer who’s passionate about crafting
+              responsive, pixel-perfect UIs with a great user experience. I work
+              with <span className="text-white font-semibold glow-angular">Angular</span>,{" "} <span className="text-white font-semibold glow-react">React</span>,{" "}
+              <span className="text-white font-semibold glow-next">Next.js</span>, and{" "}
+              <span className="text-white font-semibold glow-tailwind">Tailwind CSS</span> to
+              ship fast, maintainable code that scales.
             </p>
-            <motion.button
-              onClick={() => navigate("#contact")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              className="mt-6 px-6 py-2 rounded-md bg-[#FACC15] text-gray-800 font-semibold hover:bg-[#f8d95e] active:bg-[#e9c537]"
-            >
-              Contact Me
-            </motion.button>
+
+            <p className="text-base sm:text-lg mt-2 text-[#afadad] font-mono leading-relaxed">
+              Whether it’s a portfolio site or a SaaS dashboard, I blend
+              creativity and performance to build experiences users love.
+            </p>
+
+            <div className="flex items-center justify-center lg:justify-start gap-4 mt-6">
+              <motion.button
+                className="btn-primary"
+                onClick={() => navigate("/contact")}
+              >
+                Contact Me
+              </motion.button>
+              <Link href="/projects" className="btn-secondary">
+                See My Work
+              </Link>
+            </div>
           </section>
         </RevealOnScroll>
 
         <RevealOnScroll variant="zoomIn" delay={0.2}>
-          <section className="mt-10 sm:mt-0">
-            <img
-              src="/profile_pic1.jpg"
-              alt="Profile Picture"
-              className="shadow-xl animate-floating rounded-full w-[400px] h-[400px] object-cover"
-            />
+          <section className="mt-10 sm:mt-0 flex justify-center lg:justify-end p-4 lg:p-0">
+            <div className="relative ">
+              <img
+                src="/profile_pic1.jpg"
+                alt="Profile Picture"
+                className="rounded-[30px] shadow-2xl object-cover w-full h-full border-4 border-yellow-400"
+              />
+            </div>
           </section>
         </RevealOnScroll>
-      </nav>  
+      </nav>
     </main>
   );
 };

@@ -24,11 +24,11 @@ export default function Home() {
           style={{ scaleX }}
           className="fixed bottom-0 left-0 right-0 h-[8px] bg-[#EAB308] transform origin-left z-50"
         />
-        <Header />
+        {/* <Header /> */}
         <Hero />
         {/* <Contact /> */}
       </div>
-      <Footer />
+      {/* <Footer /> */}
 
     </div>
   );
