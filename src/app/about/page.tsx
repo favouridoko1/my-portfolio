@@ -7,7 +7,7 @@ const About = () => {
   return (
     <RevealOnScroll variant="fadeUp">
       <section
-        className="mb-24 px-4 text-white flex flex-col items-center"
+        className="mb-24 md:px-6 text-white flex flex-col items-center"
       >
         <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12">
           <span className="text-[#EAB308]">About</span> Me

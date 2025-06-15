@@ -19,7 +19,7 @@ interface CardProps {
 const Projects = () => {
   return (
     <RevealOnScroll variant="slideRight">
-      <section className="my-24 px-4 sm:px-8 lg:px-16 w-full">
+      <section className="my-24 sm:px-8 lg:px-16 w-full">
         <div className="text-center mb-12">
           <h3 className="text-4xl font-bold text-white">
             Selected <span className="text-[#FACC15]">Projects</span>

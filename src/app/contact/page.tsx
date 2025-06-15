@@ -67,7 +67,7 @@ const Contact = () => {
 
   return (
     <section
-      className="py-16 px-6 md:px-16 text-white"
+      className="py-16 md:px-6 text-white"
     >
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
         Contact <span className="text-yellow-400">Me</span>

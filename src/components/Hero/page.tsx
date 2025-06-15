@@ -15,9 +15,9 @@ const Hero = () => {
 
   return (
     // Inside your return()
-    <main className="text-white">
+    <main className="text-white mt-[10%] md:px-6">
       {/* HERO SECTION */}
-      <nav className="mx-auto flex flex-col lg:flex-row items-center justify-around gap-8 py-6">
+      <nav className="mx-auto flex flex-col lg:flex-row items-center justify-around gap-8 py-6 max-w-6xl">
         <RevealOnScroll variant="fadeUp">
           <section className="text-center lg:text-left w-full">
             <h3 className="text-2xl sm:text-4xl font-bold text-[#EAB308] whitespace-nowrap">
