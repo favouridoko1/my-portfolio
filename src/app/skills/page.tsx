@@ -14,7 +14,7 @@ interface StackImages {
 const Skills = () => {
   return (
     <RevealOnScroll variant="fadeIn">
-      <section className="flex flex-col items-center gap-10 px-4 py-16">
+      <section className="flex flex-col items-center gap-10 md:px-6 py-16">
         {/* Title & Description */}
         <div className="text-center">
           <h2 className="text-4xl font-bold text-[#FACC15] tracking-tight">
