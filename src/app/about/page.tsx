@@ -42,10 +42,9 @@ const About = () => {
             </p>
 
             <p className="text-[#d0d0d0] leading-relaxed">
-              I specialize in modern technologies like <strong>React.js</strong>
-              , <strong>Next.js</strong>, <strong>Typescript</strong>,
-              <strong>Tailwind CSS</strong>, <strong>Angular.js</strong> and{" "}
-              <strong>Framer Motion</strong>, and I’m constantly exploring new
+              I specialize in modern technologies like <span className="text-white font-semibold glow-angular">Angular</span>,{" "} <span className="text-white font-semibold glow-react">React</span>,{" "}
+              <span className="text-white font-semibold glow-next">Next.js</span>, and{" "}
+              <span className="text-white font-semibold glow-tailwind">Tailwind CSS</span>, and I’m constantly exploring new
               tools that help bridge design and functionality. From smooth page
               transitions to dynamic animations, I obsess over the little
               details that elevate a product from usable to unforgettable.
