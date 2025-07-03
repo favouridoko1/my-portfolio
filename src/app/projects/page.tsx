@@ -34,7 +34,7 @@ const Projects = () => {
           Featured <span className="text-yellow-400">Work</span>
         </h2>
         <p className="text-gray-400 mt-4 max-w-xl mx-auto">
-          A rotating reel of the projects I’ve crafted — built with care, performance, and design precision.
+          A showcase of high impact projects blending clean code, scalable architecture, and refined design.
         </p>
       </div>
 
