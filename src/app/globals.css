@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,9 +25,10 @@
 body {
   width: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(to left, #3f3f3f, #181818);
+  /* background-image: linear-gradient(to left, #0a0a0a, #0a0a0a); */
   overflow: scroll;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', 'Geist', 'Segoe UI', sans-serif;
+
 }
 
 @layer utilities {
@@ -36,17 +37,18 @@ body {
   }
 }
 
-
-/* styles/globals.css */
 .bg-stars {
-  background-color: #000000;
+  background-color: #0a0a0a !important;
   background-image: 
-    radial-gradient(white 0.8px, transparent 1px),
-    radial-gradient(white 0.8px, transparent 1px);
-  background-size: 40px 40px, 80px 80px;
+    radial-gradient(#facc15 0.6px, transparent 1px),
+    radial-gradient(#ffffff 0.6px, transparent 1px);
+  background-size: 40px 40px;
   background-position: 0 0, 20px 20px;
   animation: moveBackground 100s linear infinite;
 }
+
+
+
 
 @keyframes moveBackground {
   from {

@@ -1,87 +1,95 @@
 "use client";
-import RevealOnScroll from "@/animations/page";
-import { techStackIcons, myProjectsData } from "@/app/data/data";
-import Image from "next/image";
-import Link from "next/link";
 
 import React from "react";
-interface CardProps {
+import Image from "next/image";
+import Link from "next/link";
+import { myProjectsData } from "@/app/data/data";
+import { motion, useMotionValue, useTransform, useAnimationFrame } from "framer-motion";
+import { useRef } from "react";
+
+interface ProjectCardProps {
   id: number;
   title: string;
-  laptop_img: any;
-  chain_icon: any;
-  github_icon: any;
+  project_img: any;
   description: string;
   github_repository: string;
   live_url: string;
+  tech_stack?: string[];
 }
 
 const Projects = () => {
-  return (
-    <RevealOnScroll variant="slideRight">
-      <section className="my-24 sm:px-8 lg:px-16 w-full">
-        <div className="text-center mb-12">
-          <h3 className="text-4xl font-bold text-white">
-            Selected <span className="text-[#FACC15]">Projects</span>
-          </h3>
-          <p className="text-base sm:text-lg text-gray-400 mt-3 max-w-2xl mx-auto leading-relaxed">
-            A curated collection of real-world solutions I've built — showcasing
-            my skills in UI design, frontend architecture, and responsive
-            development.
-          </p>
-        </div>
+  const duplicatedProjects = [...myProjectsData, ...myProjectsData];
+  const baseX = useMotionValue(0);
+  const x = useTransform(baseX, (v) => `${v % (duplicatedProjects.length * 520)}px`);
+  const containerRef = useRef(null);
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {myProjectsData?.map((items: CardProps) => (
+  useAnimationFrame((t, delta) => {
+    baseX.set(baseX.get() - delta * 0.05); 
+  });
+
+  return (
+    <section className="py-24 w-full overflow-hidden">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-bold text-white">
+          Featured <span className="text-yellow-400">Work</span>
+        </h2>
+        <p className="text-gray-400 mt-4 max-w-xl mx-auto">
+          A rotating reel of the projects I’ve crafted — built with care, performance, and design precision.
+        </p>
+      </div>
+
+      {/* Infinite Scroll Container */}
+      <div ref={containerRef} className="w-full overflow-hidden">
+        <motion.div style={{ x }} className="flex gap-10 px-6 lg:px-16">
+          {duplicatedProjects.map((item: ProjectCardProps, index) => (
             <div
-              key={items.id}
-              className="bg-[#111111] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 flex flex-col"
+              key={index}
+              className="min-w-[320px] sm:min-w-[400px] lg:min-w-[500px] bg-[#111111] rounded-2xl shadow-lg border border-[#1a1a1a] p-5 flex flex-col justify-between group hover:border-yellow-500/40 hover:shadow-yellow-400/10 transition-all duration-300"
             >
-              <div className="relative group">
+              <div className="relative rounded-xl overflow-hidden">
                 <Image
-                  src={items.laptop_img}
-                  alt={items.title || "Project Preview"}
-                  className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  src={item.project_img}
+                  alt={item.title}
+                  className="w-full h-[200px] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute top-0 left-0 w-full h-full bg-black/30 opacity-0 group-hover:opacity-100 transition duration-300" />
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-300" />
               </div>
 
-              <div className="p-6 flex flex-col gap-4">
-                {/* Title */}
-                <h4 className="text-white text-lg font-semibold">
-                  {items.title || "Untitled Project"}
+              <div className="mt-4 flex-1 flex flex-col">
+                <h4 className="text-white text-lg font-semibold mb-1 group-hover:text-yellow-400 transition">
+                  {item.title}
                 </h4>
-
-                {/* Description */}
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  {items.description}
+                <p className="text-gray-300 text-sm mb-3">
+                  {item.description?.length > 120
+                    ? item.description.slice(0, 120) + "..."
+                    : item.description}
                 </p>
 
-                {/* Tech Stack */}
-                {/* <div className="flex flex-wrap gap-2 mt-2">
-                  {techStackIcons?.map((Icon, index) => (
-                    <span
-                      key={index}
-                      className="text-[#FACC15] bg-[#1a1a1a] px-2 py-1 rounded text-xs"
-                    >
-                      {Icon.name}
-                    </span>
-                  ))}
-                </div> */}
+                {item.tech_stack && (
+                  <div className="flex flex-wrap gap-2 text-xs mb-4">
+                    {item.tech_stack.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="bg-[#1a1a1a] text-yellow-400 px-2 py-1 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
-                {/* Buttons */}
-                <div className="flex gap-3 mt-4">
+                <div className="mt-auto flex gap-3">
                   <Link
-                    href={items.live_url}
+                    href={item.live_url}
                     target="_blank"
-                    className="px-4 py-2 text-sm font-semibold bg-[#FACC15] text-black rounded hover:bg-yellow-400 transition"
+                    className="px-4 py-2 text-sm font-semibold bg-yellow-400 text-black rounded hover:bg-yellow-300 transition"
                   >
                     Live Demo
                   </Link>
                   <Link
-                    href={items.github_repository}
+                    href={item.github_repository}
                     target="_blank"
-                    className="px-4 py-2 text-sm font-semibold border border-[#FACC15] text-[#FACC15] rounded hover:bg-[#facc1533] transition"
+                    className="px-4 py-2 text-sm font-semibold border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-500/10 transition"
                   >
                     GitHub
                   </Link>
@@ -89,9 +97,9 @@ const Projects = () => {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-    </RevealOnScroll>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

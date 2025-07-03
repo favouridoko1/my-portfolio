@@ -71,33 +71,33 @@ const Header = () => {
                   </Link>
                 ))}
 
-                <Link
+                {/* <Link
                   href="https://www.linkedin.com/in/favour-idoko-12760b2b5/"
                   target="_blank"
                   className="flex items-center gap-1 text-sm text-gray-400 hover:text-yellow-400"
                 >
                   <Image src={linkedIn_icon} alt="LinkedIn" />
                   LinkedIn
-                </Link>
+                </Link> */}
 
-                <Link
+                {/* <Link
                   href="https://github.com/favouridoko1"
                   target="_blank"
                   className="flex items-center gap-1 text-sm text-gray-400 hover:text-yellow-400"
                 >
                   <Image src={github_icon} alt="GitHub" />
                   GitHub
-                </Link>
+                </Link> */}
 
+              </nav>
                 <Link
                   href="/FavourIdoko.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 bg-yellow-400 text-gray-900 font-semibold px-3 py-1 rounded hover:bg-yellow-300"
+                  className="hidden md:flex items-center gap-1 bg-yellow-400 text-gray-900 font-semibold px-3 py-1 rounded hover:bg-yellow-300"
                 >
                   Resume <GoDownload />
                 </Link>
-              </nav>
 
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -128,23 +128,23 @@ const Header = () => {
             </Link>
           ))}
 
-          <Link
+          {/* <Link
             href="https://www.linkedin.com/in/favour-idoko-12760b2b5/"
             target="_blank"
             onClick={() => setMenuOpen(false)}
             className="text-sm hover:text-yellow-400"
           >
             LinkedIn
-          </Link>
+          </Link> */}
 
-          <Link
+          {/* <Link
             href="https://github.com/favouridoko1"
             target="_blank"
             onClick={() => setMenuOpen(false)}
             className="text-sm hover:text-yellow-400"
           >
             GitHub
-          </Link>
+          </Link> */}
 
           <Link
             href="/FavourIdoko.pdf"

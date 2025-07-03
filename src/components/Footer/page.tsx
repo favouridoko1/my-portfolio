@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
@@ -17,7 +18,7 @@ const Footer = () => {
 
         {/* Right Section: Social Icons */}
         <div className="flex items-center space-x-5">
-          <a
+          <Link
             href="https://www.linkedin.com/in/favour-idoko-12760b2b5/"
             target="_blank"
             rel="noopener noreferrer"
@@ -25,8 +26,8 @@ const Footer = () => {
             className="text-gray-200 hover:text-[#FACC15] transition-colors duration-300"
           >
             <FaLinkedin size={22} />
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://github.com/favouridoko1"
             target="_blank"
             rel="noopener noreferrer"
@@ -34,7 +35,7 @@ const Footer = () => {
             className="text-gray-200 hover:text-[#FACC15] transition-colors duration-300"
           >
             <FaGithub size={22} />
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -38,22 +38,25 @@ export default function RootLayout({
   });
   return (
     <html lang="en">
-      <body className={`${inter.className} ${poppins.className}`}>
-        <div className="bg-stars relative min-h-screen overflow-hidden">
-          <div className="absolute inset-0 bg-black/70 z-0" />
-          <div className="relative z-10">
-            <motion.div
-              style={{ scaleX }}
-              className="fixed bottom-0 left-0 right-0 h-[8px] bg-[#EAB308] transform origin-left z-50"
-            />
-            <Header />
-            <div className=" p-4">
-              <ThemeProvider>{children}</ThemeProvider>
-            </div>
-          </div>
-          <Footer />
-        </div>
-      </body>
+      <body
+  className={`bg-stars min-h-screen flex flex-col relative ${inter.className} ${poppins.className}`}
+>
+  <div className="absolute inset-0 bg-black/70 z-0 pointer-events-none" />
+  <motion.div
+    style={{ scaleX }}
+    className="fixed bottom-0 left-0 right-0 h-[8px] bg-[#EAB308] transform origin-left z-50"
+  />
+  <div className="relative z-10">
+    <Header />
+  </div>
+  <main className="flex-1 relative p-4">
+    <ThemeProvider>{children}</ThemeProvider>
+  </main>
+  <div className="relative">
+    <Footer />
+  </div>
+</body>
+
     </html>
   );
 }

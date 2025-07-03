@@ -13,6 +13,8 @@ import chain_img from "../../../public/chain_icon.svg";
 import github_icon from "../../../public/github_icon_small.svg";
 import profile_rectangle from "../../../public/my_profile.jpg";
 import profile_circle from "../../../public/profile_pic1.jpg";
+import flix_movie from "../../../public/flix-movie.png";
+import ShoppingList_img from "../../../public/shopping-list-img.png";
 
 
 const techStackIcons = [
@@ -69,7 +71,7 @@ const techStackIcons = [
 ];
 const myProjectsData = [
   // id: number;
-  // laptop_img: any;
+  // project_img: any;
   // chain_icon: any;
   // github_icon: any;
   // description: string;
@@ -78,7 +80,7 @@ const myProjectsData = [
   {
     id: 1,
     title: "Flixx Movie App",
-    laptop_img: laptop_img,
+    project_img: flix_movie,
     chain_icon: chain_img,
     github_icon: github_icon,
     description: "Flixx Movie App is a user-friendly platform for exploring trending movies. The homepage highlights new releases, linking to detailed pages with genre, rating, release date, and trailers. Its clean design makes browsing simple",
@@ -88,7 +90,7 @@ const myProjectsData = [
   {
     id: 2,
     title: "Shopping List App",
-    laptop_img: laptop_img,
+    project_img: ShoppingList_img,
     chain_icon: chain_img,
     github_icon: github_icon,
     description:
@@ -100,7 +102,7 @@ const myProjectsData = [
   {
     id: 3,
     title: "Movie Website",
-    laptop_img: laptop_img,
+    project_img: laptop_img,
     chain_icon: chain_img,
     github_icon: github_icon,
     description:
@@ -111,7 +113,7 @@ const myProjectsData = [
   
   // {
   //   id: 4,
-  //   laptop_img: laptop_img,
+  //   project_img: laptop_img,
   //   chain_icon: chain_img,
   //   github_icon: github_icon,
   //   description:
@@ -121,7 +123,7 @@ const myProjectsData = [
   // },
   // {
   //   id: 5,
-  //   laptop_img: laptop_img,
+  //   project_img: laptop_img,
   //   chain_icon: chain_img,
   //   github_icon: github_icon,
   //   description:
@@ -131,7 +133,7 @@ const myProjectsData = [
   // },
   // {
   //   id: 6,
-  //   laptop_img: laptop_img,
+  //   project_img: laptop_img,
   //   chain_icon: chain_img,
   //   github_icon: github_icon,
   //   description:
@@ -141,7 +143,7 @@ const myProjectsData = [
   // },
   // {
   //   id: 8,
-  //   laptop_img: laptop_img,
+  //   project_img: laptop_img,
   //   chain_icon: chain_img,
   //   github_icon: github_icon,
   //   description:
@@ -151,7 +153,7 @@ const myProjectsData = [
   // },
   // {
   //   id: 9,
-  //   laptop_img: laptop_img,
+  //   project_img: laptop_img,
   //   chain_icon: chain_img,
   //   github_icon: github_icon,
   //   description:
