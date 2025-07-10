@@ -5,8 +5,6 @@ import Link from "next/link";
 import { GoDownload } from "react-icons/go";
 import menu_icon from "../../../public/menu_icon.svg";
 import close_icon from "../../../public/close_icon.svg";
-import linkedIn_icon from "../../../public/linkedin_icon.svg";
-import github_icon from "../../../public/github_logo.svg";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -20,28 +18,28 @@ const navLinks = [
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+    let lastY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        timeout = setTimeout(() => setShowHeader(false), 100);
-      } else if (lastScrollY - currentScrollY > 10) {
-        setShowHeader(true);
-        clearTimeout(timeout);
-      }
-      setLastScrollY(currentScrollY);
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setShowHeader(currentY < lastY || currentY < 100);
+      lastY = currentY;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+    const originalOverflow = document.body.style.overflow;
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
   }, [menuOpen]);
 
   return (
@@ -70,34 +68,16 @@ const Header = () => {
                     {item.name}
                   </Link>
                 ))}
-
-                {/* <Link
-                  href="https://www.linkedin.com/in/favour-idoko-12760b2b5/"
-                  target="_blank"
-                  className="flex items-center gap-1 text-sm text-gray-400 hover:text-yellow-400"
-                >
-                  <Image src={linkedIn_icon} alt="LinkedIn" />
-                  LinkedIn
-                </Link> */}
-
-                {/* <Link
-                  href="https://github.com/favouridoko1"
-                  target="_blank"
-                  className="flex items-center gap-1 text-sm text-gray-400 hover:text-yellow-400"
-                >
-                  <Image src={github_icon} alt="GitHub" />
-                  GitHub
-                </Link> */}
-
               </nav>
-                <Link
-                  href="/FavourIdoko.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden md:flex items-center gap-1 bg-yellow-400 text-gray-900 font-semibold px-3 py-1 rounded hover:bg-yellow-300"
-                >
-                  Resume <GoDownload />
-                </Link>
+
+              <Link
+                href="/FavourIdoko.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden md:flex items-center gap-1 bg-yellow-400 text-gray-900 font-semibold px-3 py-1 rounded hover:bg-yellow-300"
+              >
+                Resume <GoDownload />
+              </Link>
 
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -115,48 +95,38 @@ const Header = () => {
         )}
       </AnimatePresence>
 
-      {menuOpen && (
-        <div className="md:hidden bg-neutral-900 text-white fixed top-0 left-0 h-screen w-2/3 z-40 shadow-lg px-6 py-6 flex flex-col gap-6 overflow-y-auto">
-          {navLinks.map((item, index) => (
-            <Link
-              key={index}
-              href={item.route}
-              onClick={() => setMenuOpen(false)}
-              className="text-sm font-medium hover:text-yellow-400 transition"
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="md:hidden fixed inset-0 z-50 bg-[#000000] text-white px-6 py-8 flex flex-col gap-6 overflow-y-auto shadow-xl"
             >
-              {item.name}
+            {navLinks.map((item, index) => (
+              <Link
+                key={index}
+                href={item.route}
+                onClick={() => setMenuOpen(false)}
+                className="text-base font-medium border-b border-neutral-700 pb-2 hover:text-yellow-400 transition"
+              >
+                {item.name}
+              </Link>
+            ))}
+
+            <Link
+              href="/FavourIdoko.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2 text-base bg-yellow-400 text-gray-900 font-medium px-4 py-2 rounded hover:bg-yellow-300 mt-4"
+            >
+              Resume <GoDownload />
             </Link>
-          ))}
-
-          {/* <Link
-            href="https://www.linkedin.com/in/favour-idoko-12760b2b5/"
-            target="_blank"
-            onClick={() => setMenuOpen(false)}
-            className="text-sm hover:text-yellow-400"
-          >
-            LinkedIn
-          </Link> */}
-
-          {/* <Link
-            href="https://github.com/favouridoko1"
-            target="_blank"
-            onClick={() => setMenuOpen(false)}
-            className="text-sm hover:text-yellow-400"
-          >
-            GitHub
-          </Link> */}
-
-          <Link
-            href="/FavourIdoko.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-1 text-sm bg-yellow-400 text-gray-900 font-medium px-3 py-1 rounded hover:bg-yellow-300"
-          >
-            Resume <GoDownload />
-          </Link>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
