@@ -7,13 +7,13 @@ const About = () => {
   return (
     <RevealOnScroll variant="fadeUp">
       <section
-        className="my-24 md:py-0  md:px-6 text-white flex flex-col items-center "
+        className="my-24 px-0 md:py-0 md:px-6 text-white flex flex-col items-center "
       >
         <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12">
           <span className="text-[#EAB308]">About</span> Me
         </h2>
 
-        <div className="w-full max-w-[2000px] bg-none  rounded-3xl shadow-lg grid grid-cols-1 lg:grid-cols-2 gap-10 p-8 sm:p-12">
+        <div className="w-full max-w-[2000px] bg-none  rounded-3xl shadow-lg grid grid-cols-1 lg:grid-cols-2 gap-10  md:p-10">
           {/* Image Section */}
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
